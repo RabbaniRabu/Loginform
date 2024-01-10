@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.login-container {
+  width: 300px;
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  display: none;
+}
+
+</style>
+<body>
+
+<div class="login-container">
+  <form id="loginForm" class="login-form">
+    <h2>Login</h2>
+    <div class="input-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div class="input-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Login</button>
+    <p id="error-msg" class="error-message"></p>
+  </form>
+</div>
+
+<script>document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+  
+    // Validation - For demonstration purposes, checking if username and password are not empty
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+  
+    if (username === '' || password === '') {
+      document.getElementById('error-msg').innerText = 'Please enter username and password';
+      document.getElementById('error-msg').style.display = 'block';
+    } else {
+      // Reset error message if fields are not empty
+      document.getElementById('error-msg').innerText = '';
+      document.getElementById('error-msg').style.display = 'none';
+  
+      // Perform login process (can be AJAX request or authentication logic)
+      console.log('Username:', username);
+      console.log('Password:', password);
+      // Redirect to dashboard or perform necessary actions upon successful login
+    }
+  });
+  </script>
+</body>
+</html>
